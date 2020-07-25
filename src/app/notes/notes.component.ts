@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 //Import class of notes
 import { Note } from '../models/note.model';
+//Import modules library
+
 
 @Component({
   selector: 'app-notes',
@@ -8,6 +10,11 @@ import { Note } from '../models/note.model';
   styleUrls: ['./notes.component.css']
 })
 export class NotesComponent implements OnInit {
+
+  //Variables of form for create a new note
+  public newNoteTitle:String;
+  public newNoteDescription:String;
+
 
   public notes: Array<Note>;
 
@@ -40,10 +47,15 @@ export class NotesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
 
+  //This function is active when the user push the button of create note.
+  addNote(){
     
-    
-    
+
+    //console.log( toString(date.getDate()) +'-'+ toString(date.getMonth()) +'-'+ toString(date.getYear()));
+    //let newNote = new Note( this.newNoteTitle , this.newNoteDescription ,  )
+
 
   }
 

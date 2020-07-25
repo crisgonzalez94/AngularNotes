@@ -4,7 +4,7 @@
 <!--======================================================================
 Note card
 ========================================================================-->
-<div *ngFor='let note of notes' class="card note-card">
+<div *ngFor='let note of notes; let i = index ' class="card note-card">
     
     <!--This isn't a modal , but i use this class for to have the close button on the right of the title of the note-->
     <div class="modal-header note-header">
@@ -44,11 +44,11 @@ Note card
       <p class="card-text">{{note.description}}</p>
     
       <!--Button for to deploy notes-->
-      <a class="btn btn-primary" data-toggle="collapse" href="#collapseNote{{note.title}}" role="button" aria-expanded="false" aria-controls="collapseNote">
+      <a class="btn btn-primary" data-toggle="collapse" href="#collapseNote{{i}}" role="button" aria-expanded="false" aria-controls="collapseNote">
         View note
       </a>
 
-      <div class="collapse" id="collapseNote{{note.title}}">
+      <div class="collapse" id="collapseNote{{i}}">
           <br>
           <!--loop over notes array-->
           <ul *ngFor='let work of note.works' class="list-group list-group-flush">
@@ -70,8 +70,46 @@ Make a new note
 ========================================================================-->
 <div class="card">
     <div class="card-body">
-        <button class="btn btn-outline-primary">New note</button>
+        
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+            Create a new note
+        </button>
+        
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-backdrop="static" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel">Create a new Note</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    </div>
+                    <div class="modal-body">
+                    
+                        
+                        <div class="form-group">
+                            <label for="newNoteTitle" >Note title</label>
+                            <input type="text" class="form-control" id="newNoteTitle" [(ngModel)]="newNoteTitle">
+                        </div>
+                        <div class="form-group">
+                            <label for="newNoteDescription">Note description</label>
+                            <textarea class="form-control" id="newNoteDescription" rows="3" [(ngModel)]="newNoteDescription"></textarea>
+                        </div>
+                    
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-primary" (click)="addNote()">Create new note</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
     </div>
 </div>
 
-
+<br>
