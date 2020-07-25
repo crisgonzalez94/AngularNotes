@@ -1,7 +1,20 @@
+.box-form-add-work input{
+    width: 85%;
+}
+.box-form-add-work button{
+    width: 15%;
+}
+
 .note-card{
     margin-bottom: 10px;
 }
 
 .note-header{
     background: grey;
+}
+
+
+.box-work input{
+    background: green;
+    width: 10%;
 }

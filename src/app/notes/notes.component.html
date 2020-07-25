@@ -41,24 +41,38 @@ Note card
     </div>
 
     <div class="card-body">
-      <p class="card-text">{{note.description}}</p>
-    
-      <!--Button for to deploy notes-->
-      <a class="btn btn-primary" data-toggle="collapse" href="#collapseNote{{i}}" role="button" aria-expanded="false" aria-controls="collapseNote">
-        View note
-      </a>
+        <p class="card-text">{{note.description}}</p>
+        
+        <!--Button for to deploy notes-->
+        <a class="btn btn-primary" data-toggle="collapse" href="#collapseNote{{i}}" role="button" aria-expanded="false" aria-controls="collapseNote">
+            View note
+        </a>
 
-      <div class="collapse" id="collapseNote{{i}}">
-          <br>
-          <!--loop over notes array-->
-          <ul *ngFor='let work of note.works' class="list-group list-group-flush">
-            <!--work-->
-            <li class="list-group-item">
-                {{work}}
-                <!--checkbox of work-->
-                <input type="checkbox">
-            </li>
-          </ul>  
+        <div class="collapse" id="collapseNote{{i}}">
+            <br>
+            <!--loop over notes array-->
+            <ul *ngFor='let work of note.works; let workIndex = index' class="list-group list-group-flush">
+                <!--work-->
+                
+                <li class="list-group-item box-work">
+                    {{work}}
+                    <!--checkbox of work-->
+                    <div class="form-group form-check">
+                        <input type="checkbox" class="form-check-input" id="checkWork{{workIndex}}">
+                    </div>
+                </li>
+            </ul>  
+
+            <div class="row box-form-add-work">
+                
+                <input type="text" class="form-control" id="addWorkInput{{i }}" placeholder="Enter a new work here" [(ngModel)]="newWork" >
+                
+                
+                <button class="btn btn-outline-primary" (click)="addWork(i)" >+</button>
+                
+                
+            </div>
+            
 
       </div>
 
@@ -101,7 +115,7 @@ Make a new note
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" (click)="addNote()">Create new note</button>
+                        <button type="button" class="btn btn-primary" (click)="addNote()"  data-dismiss="modal">Create new note</button>
                     </div>
                 </div>
             </div>

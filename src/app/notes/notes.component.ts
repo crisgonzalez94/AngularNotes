@@ -3,6 +3,9 @@ import { Component, OnInit } from '@angular/core';
 import { Note } from '../models/note.model';
 //Import modules library
 
+import * as moment from 'moment';
+import 'moment/locale/pt-br';
+
 
 @Component({
   selector: 'app-notes',
@@ -12,8 +15,9 @@ import { Note } from '../models/note.model';
 export class NotesComponent implements OnInit {
 
   //Variables of form for create a new note
-  public newNoteTitle:String;
-  public newNoteDescription:String;
+  public newWork:string;
+  public newNoteTitle:string;
+  public newNoteDescription:string;
 
 
   public notes: Array<Note>;
@@ -51,11 +55,28 @@ export class NotesComponent implements OnInit {
 
   //This function is active when the user push the button of create note.
   addNote(){
+    let date = moment().format("MMM Do YY");   
+
+    /*This is a new object for save the new note makes for the user*/
+    let newNote = {
+      'title': this.newNoteTitle,
+      'description': this.newNoteDescription,
+      'works': [],
+      'date': date
+    }
+
+    this.notes.push(newNote);
+
+  }
+
+  //This function is for add work a note (recive as param the index of the note in array of notes)
+  addWork(i){
     
-
-    //console.log( toString(date.getDate()) +'-'+ toString(date.getMonth()) +'-'+ toString(date.getYear()));
-    //let newNote = new Note( this.newNoteTitle , this.newNoteDescription ,  )
-
+    //If this.newNote isn't empty
+    if(this.newWork != ''){
+      this.notes[i].works.push(this.newWork);
+    }
+    
 
   }
 
