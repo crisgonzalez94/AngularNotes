@@ -1,12 +1,77 @@
-<h1>My Notebooks</h1>
+<h1>My Notebook</h1>
 <hr>
 
+<!--======================================================================
+Note card
+========================================================================-->
+<div *ngFor='let note of notes' class="card note-card">
+    
+    <!--This isn't a modal , but i use this class for to have the close button on the right of the title of the note-->
+    <div class="modal-header note-header">
+        <h5 class="">{{note.title}}</h5>
+        <!--This button to deploy a modal for delete this note-->
+        <button type="button" class="close" aria-label="Close" data-toggle="modal" data-target="#exampleModal">
+          <span aria-hidden="true">&times;</span>
+        </button>
+        
+
+        
+        <!-- Modal for delete note -->
+        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Delete note</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+                </div>
+                <div class="modal-body">
+                    <p>Are you sure that you want delete this note.</p>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-dismiss="modal">Keep</button>
+                <button type="button" class="btn btn-danger">Delete</button>
+                </div>
+            </div>
+            </div>
+        </div>
+        <!--=========================================================-->
+
+    </div>
+
+    <div class="card-body">
+      <p class="card-text">{{note.description}}</p>
+    
+      <!--Button for to deploy notes-->
+      <a class="btn btn-primary" data-toggle="collapse" href="#collapseNote{{note.title}}" role="button" aria-expanded="false" aria-controls="collapseNote">
+        View note
+      </a>
+
+      <div class="collapse" id="collapseNote{{note.title}}">
+          <br>
+          <!--loop over notes array-->
+          <ul *ngFor='let work of note.works' class="list-group list-group-flush">
+            <!--work-->
+            <li class="list-group-item">
+                {{work}}
+                <!--checkbox of work-->
+                <input type="checkbox">
+            </li>
+          </ul>  
+
+      </div>
+
+    </div>
+</div>
+
+<!--======================================================================
+Make a new note
+========================================================================-->
 <div class="card">
     <div class="card-body">
-        <button id="tooltip" type="button" class="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="Tooltip on top">
-            Tooltip on top
-        </button>
+        <button class="btn btn-outline-primary">New note</button>
     </div>
-  </div>
+</div>
 
 
