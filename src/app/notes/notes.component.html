@@ -55,17 +55,19 @@ Note card
                 <!--work-->
                 
                 <li class="list-group-item box-work">
-                    {{work}}
-                    <!--checkbox of work-->
-                    <div class="form-group form-check">
-                        <input type="checkbox" class="form-check-input" id="checkWork{{workIndex}}">
-                    </div>
+                    <!--This is a span for show the work , has a id with the index of 
+                        work for call in typescript
+                    This span has a function , if the user push it , the checked of work is active
+                    -->
+                    <span id="box-work{{workIndex}}" *ngIf='!work.checked' (click)='checkWork(i , workIndex)'>{{work.work}}</span><!--If is not checked-->
+                    <span id="box-work{{workIndex}}" class="" *ngIf='work.checked' (click)='uncheckWork(i , workIndex)' ><del>{{work.work}}</del></span><!--If is checked-->
+               
                 </li>
             </ul>  
 
             <div class="row box-form-add-work">
                 
-                <input type="text" class="form-control" id="addWorkInput{{i }}" placeholder="Enter a new work here" [(ngModel)]="newWork" >
+                <input type="text" class="form-control" id="addWorkInput{{i}}" placeholder="Enter a new work here" [(ngModel)]="newWork" >
                 
                 
                 <button class="btn btn-outline-primary" (click)="addWork(i)" >+</button>
