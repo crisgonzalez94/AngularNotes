@@ -31,7 +31,7 @@ Note card
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-dismiss="modal">Keep</button>
-                <button type="button" class="btn btn-danger">Delete</button>
+                <button type="button" class="btn btn-danger" (click)='deleteNote(i)' data-dismiss="modal">Delete</button>
                 </div>
             </div>
             </div>
@@ -61,7 +61,12 @@ Note card
                     -->
                     <span id="box-work{{workIndex}}" *ngIf='!work.checked' (click)='checkWork(i , workIndex)'>{{work.work}}</span><!--If is not checked-->
                     <span id="box-work{{workIndex}}" class="" *ngIf='work.checked' (click)='uncheckWork(i , workIndex)' ><del>{{work.work}}</del></span><!--If is checked-->
-               
+                    
+                    <!--Delete note button-->
+                    <button type="button" class="close" aria-label="Close" (click)='deleteWork(i , workIndex)' id="deleteWorkButton{{i}}" >
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+
                 </li>
             </ul>  
 
@@ -119,6 +124,7 @@ Make a new note
                     <div class="modal-footer">
                         <button type="button" class="btn btn-primary" (click)="addNote()"  data-dismiss="modal">Create new note</button>
                     </div>
+
                 </div>
             </div>
         </div>
