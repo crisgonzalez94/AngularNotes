@@ -1,1 +1,60 @@
 /* You can add global styles to this file, and also import other style files */
+@font-face{
+    font-family: amita-regular;
+    src: url("assets/fonts/amita/amita-regular.ttf");
+}
+
+
+*{
+    font-family: amita-regular;
+}
+
+
+
+/*For the styles , i follow the same rules that bootstrap
+i have class for background color (.bg-color) and color (.color)
+also outlines (.outline-color) , btn-color  and btn-outline*/
+.bg-cayenne{
+    background: #AF4425;
+}
+
+.bg-cinnamon{
+    background: #662E1C;
+}
+
+.bg-cream{
+    background: #EBDCB2;
+}
+
+.bg-caramel{
+    background: #C9A66B;
+}
+
+.cayenne{
+    color: #AF4425;
+}
+
+.cream{
+    color: #EBDCB2;
+}
+
+.caramel{
+    color: #C9A66B;
+}
+
+.cinnamon{
+    color: #662E1C;
+}
+
+.btn-cinnamon{
+    background: #662E1C;
+    color: #EBDCB2;
+}
+.btn-cinnamon:active{
+    background: #AF4425;
+    color: #EBDCB2;
+}
+.btn-cinnamon:hover{
+    background: #AF4425;
+    color: #EBDCB2;
+}

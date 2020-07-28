@@ -4,13 +4,13 @@
 <!--======================================================================
 Note card
 ========================================================================-->
-<div *ngFor='let note of notes; let i = index ' class="card note-card">
+<div *ngFor='let note of notes; let i = index ' class="card note-card bg-cream">
     
     <!--This isn't a modal , but i use this class for to have the close button on the right of the title of the note-->
-    <div class="modal-header note-header">
+    <div class="modal-header note-header bg-cream">
         <h5 class="">{{note.title}}</h5>
         <!--This button to deploy a modal for delete this note-->
-        <button type="button" class="close" aria-label="Close" data-toggle="modal" data-target="#exampleModal">
+        <button type="button" class="close " aria-label="Close" data-toggle="modal" data-target="#exampleModal">
           <span aria-hidden="true">&times;</span>
         </button>
         
@@ -40,11 +40,11 @@ Note card
 
     </div>
 
-    <div class="card-body">
+    <div class="card-body bg-light">
         <p class="card-text">{{note.description}}</p>
         
         <!--Button for to deploy notes-->
-        <a class="btn btn-primary" data-toggle="collapse" href="#collapseNote{{i}}" role="button" aria-expanded="false" aria-controls="collapseNote">
+        <a class="btn btn-cinnamon" data-toggle="collapse" href="#collapseNote{{i}}" role="button" aria-expanded="false" aria-controls="collapseNote">
             View note
         </a>
 
@@ -93,7 +93,7 @@ Make a new note
     <div class="card-body">
         
         <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#staticBackdrop">
+        <button type="button" class="btn btn-cinnamon" data-toggle="modal" data-target="#staticBackdrop">
             Create a new note
         </button>
         
@@ -122,7 +122,7 @@ Make a new note
 
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" (click)="addNote()"  data-dismiss="modal">Create new note</button>
+                        <button type="button" class="btn btn-cinnamon" (click)="addNote()"  data-dismiss="modal">Create new note</button>
                     </div>
 
                 </div>
