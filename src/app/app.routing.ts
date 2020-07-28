@@ -1,14 +1,16 @@
 import { ModuleWithProviders } from '@angular/core';
-import { Routes , RouterModule } from '@angular/router'
+import { Routes , RouterModule } from '@angular/router';
 
 /*Importar Componentes*/
 import { NotesComponent } from './notes/notes.component';
+import { AboutComponent } from './about/about.component';
 
 /*Array de rutas*/
 const appRoutes: Routes = [
-                            /*Este es el componente principal*/
-                            {path: '', component: NotesComponent,},
-                            /*Esta es la ruta 404 y siempre debe estar al final de este array*/
+                            /*This is main document*/
+                            {path: '', component: NotesComponent, },
+                            {path: 'about', component: AboutComponent,},
+                            /*This is for 404 error */
                             {path: '**', component: NotesComponent}
                           ];
 
