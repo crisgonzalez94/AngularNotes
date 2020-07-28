@@ -50,11 +50,16 @@ also outlines (.outline-color) , btn-color  and btn-outline*/
     background: #662E1C;
     color: #EBDCB2;
 }
-.btn-cinnamon:active{
+.btn-cinnamon:active , .btn-cinnamon:hover{
     background: #AF4425;
     color: #EBDCB2;
 }
-.btn-cinnamon:hover{
-    background: #AF4425;
+
+.btn-outline-cinnamon{
+    border: 2px solid #662E1C;
+}
+
+.btn-outline-cinnamon:hover , .btn-outline-cinnamon:active{
+    background: #662E1C;
     color: #EBDCB2;
 }
