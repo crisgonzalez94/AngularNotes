@@ -17,11 +17,14 @@ function createWindow() {
         })
     );
 
+    //This is for view console
+    /*
     win.webContents.openDevTools();
 
     win.on('closed', () => {
         win = null;
     });
+    */
 }
 
 // Para ver el estado de la app

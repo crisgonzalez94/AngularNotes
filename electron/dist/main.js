@@ -14,10 +14,14 @@ function createWindow() {
         protocol: 'file:',
         slashes: true
     }));
+    //This is for view console
+    /*
     win.webContents.openDevTools();
-    win.on('closed', function () {
+
+    win.on('closed', () => {
         win = null;
     });
+    */
 }
 // Para ver el estado de la app
 electron_1.app.on('ready', createWindow);
